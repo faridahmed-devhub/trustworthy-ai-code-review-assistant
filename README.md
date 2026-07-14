@@ -1,786 +1,342 @@
-\# 🤖 Trustworthy AI Code Review Assistant
-
-
+# 🤖 Trustworthy AI Code Review Assistant
 
 <p align="center">
 
-
-
-An AI-powered Software Engineering assistant that combines  
-
-Static Analysis, Large Language Models (LLMs), and Trustworthiness Evaluation  
-
-to improve software quality, security, and developer productivity.
-
-
+<img src="https://img.shields.io/badge/AI-Software%20Engineering-blue">
+<img src="https://img.shields.io/badge/LLM-Code%20Review-green">
+<img src="https://img.shields.io/badge/FastAPI-Backend-red">
+<img src="https://img.shields.io/badge/Next.js-Frontend-black">
 
 </p>
 
 
+<h3 align="center">
+A Research Prototype for Evaluating Trustworthy AI Assistants in Software Engineering
+</h3>
 
 
+<p align="center">
+Combining Static Analysis, Large Language Models, and Reliability Evaluation
+to build safer and more dependable AI-powered software engineering assistants.
+</p>
 
-\---
 
+---
 
+# 🌟 Overview
 
-\# 📌 Overview
+Large Language Models (LLMs) are transforming software development.
+However, AI coding assistants can still produce:
 
+- Incorrect suggestions
+- Security vulnerabilities
+- Missing edge cases
+- Hallucinated explanations
+- Unreliable recommendations
 
 
-Software developers increasingly use Large Language Models (LLMs) for coding assistance. However, current AI coding assistants may produce incorrect suggestions, miss security vulnerabilities, ignore edge cases, or generate unreliable recommendations.
+This project aims to build a **Trustworthy AI Code Review Assistant**
+that evaluates AI-generated software recommendations using:
 
+✅ Static Code Analysis  
+✅ AI Code Review  
+✅ Security Analysis  
+✅ Software Metrics  
+✅ Trustworthiness Evaluation  
 
 
-This project explores a \*\*Trustworthy AI Code Review Assistant\*\* that integrates:
+---
 
-
-
-\- Static code analysis
-
-\- AI-based code review
-
-\- Security analysis
-
-\- Software quality metrics
-
-\- LLM reliability evaluation
-
-
-
-The goal is to build an intelligent assistant that helps developers write software that is:
-
-
-
-✅ Correct  
-
-✅ Secure  
-
-✅ Maintainable  
-
-✅ Reliable  
-
-
-
-
-
-\---
-
-
-
-\# 🎯 Research Motivation
-
-
-
-Large Language Models have shown impressive capabilities in software engineering tasks, but their reliability remains a challenge.
-
-
-
-This project investigates:
-
-
-
-\- How accurate are LLM-based code reviews?
-
-\- Can static analysis improve AI review quality?
-
-\- How can we measure trustworthiness of AI software assistants?
-
-\- How can AI assistants provide reliable recommendations?
-
-
-
-
-
-\---
-
-
-
-\# 🔬 Research Focus
-
-
-
-\## Trustworthy AI for Software Engineering
-
-
-
-Main research areas:
-
-
-
-\- LLM-based Software Engineering Assistants
-
-\- AI-assisted Code Review
-
-\- Software Quality Analysis
-
-\- Software Security Assessment
-
-\- Defect Detection
-
-\- AI Reliability Evaluation
-
-\- Hallucination Detection
-
-\- Confidence Estimation
-
-
-
-
-
-\---
-
-
-
-\# 🏗️ System Architecture
-
-
-
+# 🏗️ System Architecture
 
 
 ```
+             Developer Repository
 
-Developer Repository
+                    |
+                    v
 
+            Repository Scanner
 
+                    |
+                    v
 
-&#x20;       |
+        +-----------------------+
+        | Static Analysis Engine |
+        +-----------------------+
 
-&#x20;       ↓
+        Ruff
+        Bandit
+        Semgrep
+        AST Analysis
 
+                    |
+                    v
 
+        +-----------------------+
+        |   LLM Review Engine    |
+        +-----------------------+
 
-Repository Scanner
+        Bug Detection
+        Security Review
+        Code Quality
+        Suggestions
 
+                    |
+                    v
 
+        +-----------------------+
+        | Trust Evaluation Layer |
+        +-----------------------+
 
-&#x20;       |
+        Correctness
+        Confidence
+        Hallucination
+        Reliability Score
 
-&#x20;       ↓
+                    |
+                    v
 
-
-
-Static Analysis Engine
-
-
-
-(Ruff / Bandit / Semgrep / AST)
-
-
-
-&#x20;       |
-
-&#x20;       ↓
-
-
-
-LLM Review Engine
-
-
-
-(GPT / Claude / Gemini / Local LLM)
-
-
-
-&#x20;       |
-
-&#x20;       ↓
-
-
-
-Trust Evaluation Layer
-
-
-
-&#x20;       |
-
-&#x20;       ↓
-
-
-
-Interactive Dashboard
-
-
+          Interactive Dashboard
 
 ```
 
 
+---
 
+# ✨ Key Features
 
 
-\---
+## 🔍 Intelligent Code Review
 
+AI-assisted analysis for:
 
+- Bugs
+- Code smells
+- Performance issues
+- Security problems
+- Best practices
 
-\# 🧩 Core Components
 
+## 🔐 Security Analysis
 
+Integration with:
 
+- Bandit
+- Semgrep
+- Static analysis tools
 
 
-\## 1. Analysis Engine
+## 🧠 LLM Evaluation
 
+Compare multiple AI models:
 
+- GPT
+- Claude
+- Gemini
+- Open-source LLMs
 
-Responsible for traditional software engineering analysis.
 
-
-
-Capabilities:
-
-
-
-\- Code quality analysis
-
-\- Complexity measurement
-
-\- Security vulnerability detection
-
-\- Code smell detection
-
-\- Maintainability evaluation
-
-
-
-
-
-Technologies:
-
-
-
-\- AST
-
-\- Ruff
-
-\- Bandit
-
-\- Semgrep
-
-
-
-
-
-\---
-
-
-
-\## 2. AI Engine
-
-
-
-LLM-based intelligent review system.
-
-
-
-Capabilities:
-
-
-
-\- Bug detection
-
-\- Security review
-
-\- Performance suggestions
-
-\- Best practice recommendations
-
-\- Edge case identification
-
-
-
-
-
-Supported models:
-
-
-
-\- OpenAI models
-
-\- Anthropic models
-
-\- Google Gemini
-
-\- Open-source LLMs
-
-
-
-
-
-\---
-
-
-
-\## 3. Trust Evaluation
-
-
-
-Measures AI response reliability.
-
-
-
-Evaluation metrics:
-
-
+Evaluation:
 
 | Metric | Description |
-
-|---|---|
-
-| Correctness | Accuracy of AI suggestions |
-
-| Security | Vulnerability detection ability |
-
-| Completeness | Coverage of issues |
-
-| Confidence | AI confidence estimation |
-
-| Hallucination | Incorrect AI recommendations |
+|-|-|
+| Correctness | Quality of AI suggestions |
+| Security | Vulnerability detection |
+| Confidence | Reliability estimation |
+| Hallucination | False recommendations |
 
 
+---
+
+# 🛠 Technology Stack
 
 
+## Backend
 
-\---
+<p>
+
+🐍 Python  
+⚡ FastAPI  
+🐘 PostgreSQL  
+🚀 Redis  
+🔄 Celery  
+
+</p>
 
 
+## Frontend
 
-\# 📊 Evaluation Framework
+<p>
+
+▲ Next.js  
+⚛ React  
+📘 TypeScript  
+
+</p>
 
 
+## AI / Research
+
+- Large Language Models
+- Prompt Engineering
+- AI Agents
+- Software Analytics
+- Machine Learning
 
 
+## DevOps
 
-Example:
+- Docker
+- GitHub Actions
+- Linux
 
+
+---
+
+# 📂 Repository Structure
 
 
 ```
-
-Model Comparison
-
-
-
-&#x20;               GPT-4   Claude   Gemini
-
-
-
-Bug Detection    92%      90%      86%
-
-
-
-Security         88%      91%      84%
-
-
-
-Trust Score      90%      89%      85%
-
-
-
-```
-
-
-
-
-
-\---
-
-
-
-\# 🛠 Technology Stack
-
-
-
-
-
-\## Backend
-
-
-
-\- Python
-
-\- FastAPI
-
-\- PostgreSQL
-
-\- Redis
-
-\- Celery
-
-
-
-
-
-\## Frontend
-
-
-
-\- Next.js
-
-\- TypeScript
-
-\- Tailwind CSS
-
-
-
-
-
-\## AI
-
-
-
-\- Large Language Models
-
-\- Prompt Engineering
-
-\- AI Agents
-
-
-
-
-
-\## DevOps
-
-
-
-\- Docker
-
-\- GitHub Actions
-
-\- Linux
-
-
-
-
-
-\---
-
-
-
-\# 📂 Project Structure
-
-
-
-
-
-```
-
 trustworthy-ai-code-review-assistant/
 
-
-
 ├── backend/
-
 ├── frontend/
-
-├── analysis\_engine/
-
-├── ai\_engine/
-
+├── analysis_engine/
+├── ai_engine/
 ├── research/
-
 ├── experiments/
-
 ├── datasets/
-
 ├── architecture/
-
 ├── docs/
-
 ├── tests/
-
-├── docker/
-
-
+└── docker/
 
 ```
 
 
+---
 
+# 🔬 Research Direction
 
 
-\---
+## Main Research Question
 
+How can we build trustworthy AI assistants for software engineering?
 
 
-\# 🚀 Development Roadmap
+## Research Topics
 
+- LLM-based Software Engineering Assistants
+- AI Code Review
+- Software Quality Prediction
+- Software Security
+- Hallucination Detection
+- AI Reliability Measurement
 
 
+---
 
+# 🚀 Development Roadmap
 
-\## Phase 1 - Foundation
 
+## Phase 1: Foundation
 
+✅ Repository Architecture
 
-\- \[x] Repository structure
+⬜ FastAPI Backend
 
-\- \[ ] FastAPI backend
 
-\- \[ ] Project management API
+## Phase 2: Software Analysis
 
+⬜ Static Analyzer
 
+⬜ Code Metrics
 
+⬜ Security Scanner
 
 
-\## Phase 2 - Software Analysis
+## Phase 3: AI Assistant
 
+⬜ LLM Integration
 
+⬜ Multi-Agent Review
 
-\- \[ ] Static analysis integration
 
-\- \[ ] Code metrics
+## Phase 4: Trust Evaluation
 
-\- \[ ] Security scanning
+⬜ Confidence Score
 
+⬜ Hallucination Detection
 
+⬜ Reliability Metrics
 
 
+## Phase 5: Dashboard
 
-\## Phase 3 - AI Review
+⬜ Next.js Interface
 
+⬜ Visualization
 
 
-\- \[ ] LLM integration
+---
 
-\- \[ ] Prompt engineering
+# 📊 Evaluation Example
 
-\- \[ ] AI agents
 
+```
+AI Model Comparison
 
+              GPT-4   Claude   Gemini
 
+Bug Detection   92%     90%      86%
 
+Security        88%     91%      84%
 
-\## Phase 4 - Trust Evaluation
-
-
-
-\- \[ ] Confidence scoring
-
-\- \[ ] Hallucination detection
-
-\- \[ ] Reliability metrics
-
-
-
-
-
-\## Phase 5 - Dashboard
-
-
-
-\- \[ ] Next.js interface
-
-\- \[ ] Visualization
-
-\- \[ ] Reports
-
-
-
-
-
-\---
-
-
-
-\# 🧪 Experiments
-
-
-
-Research experiments will evaluate:
-
-
-
-\- Different LLM models
-
-\- Different prompting strategies
-
-\- AI review accuracy
-
-\- Security detection capability
-
-\- Reliability scores
-
-
-
-
-
-\---
-
-
-
-\# 📚 Research Questions
-
-
-
-
-
-\*\*RQ1:\*\*  
-
-How reliable are LLM-based software engineering assistants?
-
-
-
-
-
-\*\*RQ2:\*\*  
-
-Can static analysis improve AI-generated code review?
-
-
-
-
-
-\*\*RQ3:\*\*  
-
-How can trustworthiness of AI coding assistants be measured?
-
-
-
-
-
-\---
-
-
-
-\# ⚙️ Installation
-
-
-
-
-
-Clone repository:
-
-
-
-```bash
-
-git clone https://github.com/yourusername/trustworthy-ai-code-review-assistant.git
+Trust Score     90%     89%      85%
 
 ```
 
 
+---
 
+# 📸 Screenshots
 
 
-Backend:
+Coming soon
 
 
+---
 
-```bash
+# 👨‍💻 Author
 
-cd backend
 
-
-
-pip install -r requirements.txt
-
-
-
-uvicorn app.main:app --reload
-
-```
-
-
-
-
-
-Frontend:
-
-
-
-```bash
-
-cd frontend
-
-
-
-npm install
-
-
-
-npm run dev
-
-```
-
-
-
-
-
-\---
-
-
-
-\# 🤝 Contribution
-
-
-
-Contributions are welcome.
-
-
-
-Please read:
-
-
-
-\- CONTRIBUTING.md
-
-\- CODE\_OF\_CONDUCT.md
-
-
-
-
-
-\---
-
-
-
-\# 📄 License
-
-
-
-MIT License
-
-
-
-
-
-\---
-
-
-
-\# 👨‍💻 Author
-
-
-
-Farid Ahmed
-
-
+## Farid Ahmed
 
 Senior Software Engineer
 
-
-
 Research Interest:
 
-
-
-\*\*Trustworthy AI for Software Engineering\*\*
-
-
+**Trustworthy AI for Software Engineering**
 
 AI4SE • LLMs • Software Quality • Software Security
 
 
+---
+
+# 🎯 Vision
 
 
+To develop AI software engineering assistants that are:
 
-\---
+⭐ Reliable  
+🔒 Secure  
+🧠 Intelligent  
+📈 Evidence-based  
 
 
+---
 
-\# ⭐ Vision
+# ⭐ If you find this project interesting
 
-
-
-To build intelligent software engineering assistants that are not only powerful, but also reliable, secure, and trustworthy.
-
+Consider giving it a star ⭐
