@@ -9,15 +9,24 @@
 
 </p>
 
+<p align="center">
+
+🚧 <strong>Status:</strong> Active Development &nbsp; | &nbsp;
+🎯 <strong>Current Version:</strong> MVP v0.1 &nbsp; | &nbsp;
+🔬 <strong>Research Area:</strong> AI for Software Engineering (AI4SE)
+
+</p>
+
 
 <h3 align="center">
-A Research Prototype for Evaluating Trustworthy AI Assistants in Software Engineering
+An Open-Source Platform for Trustworthy AI-assisted Code Review and Software Quality Analysis
 </h3>
 
 
 <p align="center">
-Combining Static Analysis, Large Language Models, and Reliability Evaluation
-to build safer and more dependable AI-powered software engineering assistants.
+Trustworthy AI Code Review Assistant is an open-source platform that combines static analysis, large language models, and software quality metrics to help developers review code, detect security issues, and evaluate the reliability of AI-generated recommendations.
+
+The project is designed for both software engineering practitioners and researchers working in AI for Software Engineering (AI4SE).
 </p>
 
 
@@ -45,7 +54,16 @@ that evaluates AI-generated software recommendations using:
 ✅ Trustworthiness Evaluation  
 
 
+
+## Why This Project?
+
+Current AI coding assistants often generate useful suggestions but may also introduce security issues, incorrect fixes, or hallucinated explanations.
+
+This project investigates how software engineering techniques and AI evaluation methods can be combined to build more trustworthy AI-assisted development tools.
+
 ---
+
+
 
 # 🏗️ System Architecture
 
@@ -109,13 +127,22 @@ that evaluates AI-generated software recommendations using:
 
 ## 🔍 Intelligent Code Review
 
-AI-assisted analysis for:
+## Current MVP Features
 
-- Bugs
-- Code smells
-- Performance issues
-- Security problems
-- Best practices
+- Repository scanning
+- Static code analysis (Ruff, Bandit)
+- AI-assisted code review
+- Software quality metrics
+- Security analysis
+- Report generation
+
+## Planned Features
+
+- Multi-LLM comparison
+- Hallucination detection
+- Trust score estimation
+- Explainable AI recommendations
+- Multi-agent code review
 
 
 ## 🔐 Security Analysis
@@ -225,14 +252,13 @@ trustworthy-ai-code-review-assistant/
 How can we build trustworthy AI assistants for software engineering?
 
 
-## Research Topics
+## Research Objectives
 
-- LLM-based Software Engineering Assistants
-- AI Code Review
-- Software Quality Prediction
-- Software Security
-- Hallucination Detection
-- AI Reliability Measurement
+- Improve the reliability of AI-generated code reviews
+- Reduce hallucinated software recommendations
+- Measure confidence in LLM-generated feedback
+- Integrate traditional static analysis with AI reasoning
+- Support evidence-based software engineering
 
 
 ---
@@ -285,15 +311,7 @@ How can we build trustworthy AI assistants for software engineering?
 
 
 ```
-AI Model Comparison
-
-              GPT-4   Claude   Gemini
-
-Bug Detection   92%     90%      86%
-
-Security        88%     91%      84%
-
-Trust Score     90%     89%      85%
+Illustrative example. Actual benchmark results will be published after experimental evaluation.
 
 ```
 
@@ -303,25 +321,55 @@ Trust Score     90%     89%      85%
 # 📸 Screenshots
 
 
-Coming soon
+🚧 Under Active Development
+
+Screenshots will be added after the first MVP release.
 
 
 ---
 
-# 👨‍💻 Author
+## 👨‍💻 Author
 
-
-## Farid Ahmed
+**Farid Ahmed**
 
 Senior Software Engineer
 
-Research Interest:
+Prospective PhD Researcher in Software Engineering
 
-**Trustworthy AI for Software Engineering**
+**Research Interests**
 
-AI4SE • LLMs • Software Quality • Software Security
+- Trustworthy AI for Software Engineering
+- AI-assisted Code Review
+- Software Quality Assurance
+- Software Security
+- Large Language Models (LLMs)
 
 
+---
+
+
+
+
+# 📖 Citation
+
+If you use this project in academic research or publications, please cite this repository.
+
+*A formal citation (CITATION.cff) will be provided in a future release.*
+---
+# 📄 License
+
+This project is released under the MIT License.
+See the LICENSE file for details.
+
+
+## Future Research Directions
+
+- Explainable AI for Code Review
+- Multi-Agent Code Review
+- AI Benchmarking
+- Human-AI Collaboration
+- Repository Mining
+- Trustworthy AI Metrics
 ---
 
 # 🎯 Vision
@@ -337,6 +385,20 @@ To develop AI software engineering assistants that are:
 
 ---
 
-# ⭐ If you find this project interesting
+---
 
-Consider giving it a star ⭐
+# 🤝 Contributing
+
+Contributions, ideas, and discussions are welcome.
+
+Please open an issue before submitting major changes.
+
+---
+
+<p align="center">
+
+Built with ❤️ by <strong>Farid Ahmed</strong>
+
+Senior Software Engineer • AI for Software Engineering
+
+</p>
