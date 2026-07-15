@@ -1,0 +1,82 @@
+sequenceDiagram
+
+    autonumber
+
+    participant User as 👤 Developer
+    participant UI as 💻 Next.js Dashboard
+    participant API as ⚡ FastAPI Backend
+    participant Scanner as 🔍 Repository Scanner
+    participant Static as 🟢 Static Analysis Engine
+    participant AI as 🤖 LLM Review Engine
+    participant Agent as 🧠 AI Agents
+    participant Trust as 🛡️ Trust Evaluation Layer
+    participant DB as 🗄️ PostgreSQL
+    participant Queue as ⏱️ Celery Worker
+
+
+    User->>UI: Upload Git Repository / Source Code
+
+    UI->>API: Submit Analysis Request
+
+    API->>DB: Create Project Record
+
+    API->>Queue: Create Background Analysis Task
+
+    Queue->>Scanner: Clone Repository
+
+    Scanner->>Scanner: Detect Files & Languages
+
+    Scanner->>Static: Send Source Code
+
+
+    Static->>Static: Run Ruff Analysis
+
+    Static->>Static: Run Bandit Security Scan
+
+    Static->>Static: Run Semgrep Rules
+
+    Static->>Static: Calculate Code Metrics
+
+    Static-->>API: Static Analysis Report
+
+
+    API->>AI: Send Code + Static Findings
+
+
+    AI->>Agent: Start AI Review Process
+
+
+    Agent->>Agent: Code Quality Review
+
+    Agent->>Agent: Security Review
+
+    Agent->>Agent: Test Case Analysis
+
+    Agent->>AI: Generate Recommendations
+
+
+    AI-->>API: AI Review Response
+
+
+    API->>Trust: Evaluate AI Output
+
+
+    Trust->>Trust: Calculate Correctness Score
+
+    Trust->>Trust: Calculate Security Score
+
+    Trust->>Trust: Calculate Confidence Score
+
+    Trust->>Trust: Detect Hallucination
+
+
+    Trust-->>API: Trust Score Report
+
+
+    API->>DB: Store Final Report
+
+
+    API-->>UI: Return Analysis Result
+
+
+    UI-->>User: Display Quality Report & Trust Score

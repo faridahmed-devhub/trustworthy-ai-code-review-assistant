@@ -1,0 +1,173 @@
+flowchart TD
+
+%% =========================
+%% Input Layer
+%% =========================
+
+User["👤 Developer<br/>Upload Git Repository / Source Code"]
+
+Repo["📂 Source Repository<br/>Python / Java / JavaScript / etc."]
+
+
+%% =========================
+%% Processing Layer
+%% =========================
+
+Scanner["🔍 Repository Scanner<br/>
+- Clone Repository<br/>
+- Detect Files<br/>
+- Identify Languages<br/>
+- Extract Metadata"]
+
+
+Preprocessor["⚙️ Code Preprocessing<br/>
+- File Filtering<br/>
+- Parsing<br/>
+- Tokenization"]
+
+
+%% =========================
+%% Static Analysis
+%% =========================
+
+Static["🟢 Static Analysis Pipeline"]
+
+Quality["Code Quality Analysis<br/>
+Ruff + Radon"]
+
+Security["Security Analysis<br/>
+Bandit + Semgrep"]
+
+Metrics["Software Metrics<br/>
+Complexity<br/>
+Maintainability"]
+
+
+StaticReport["📄 Static Analysis Result<br/>
+Issues + Metrics + Findings"]
+
+
+%% =========================
+%% AI Processing
+%% =========================
+
+AIInput["🧠 AI Processing Input<br/>
+Code + Static Findings"]
+
+LLM["🤖 LLM Engine<br/>
+GPT / Claude / Gemini / Local Model"]
+
+
+Agents["AI Agents"]
+
+CodeAgent["Code Review Agent"]
+SecurityAgent["Security Agent"]
+TestAgent["Testing Agent"]
+
+
+AIReport["📄 AI Review Report<br/>
+Suggestions + Explanation"]
+
+
+%% =========================
+%% Trust Evaluation
+%% =========================
+
+Evaluation["🛡️ Trust Evaluation"]
+
+Correctness["Correctness Score"]
+SecurityScore["Security Score"]
+Confidence["Confidence Score"]
+Hallucination["Hallucination Detection"]
+
+
+TrustReport["📊 Final Trust Report<br/>
+Overall Reliability Score"]
+
+
+%% =========================
+%% Storage
+%% =========================
+
+Database[("🗄️ PostgreSQL<br/>
+Projects<br/>
+Reports<br/>
+Results")]
+
+
+VectorDB[("🧠 Vector Database<br/>
+Embeddings<br/>
+Code Knowledge")]
+
+
+%% =========================
+%% Presentation
+%% =========================
+
+API["⚡ FastAPI Backend"]
+
+Dashboard["💻 Next.js Dashboard<br/>
+Visualization<br/>
+Reports"]
+
+
+%% =========================
+%% Data Flow
+%% =========================
+
+User --> Repo
+
+Repo --> Scanner
+
+Scanner --> Preprocessor
+
+Preprocessor --> Static
+
+Static --> Quality
+Static --> Security
+Static --> Metrics
+
+Quality --> StaticReport
+Security --> StaticReport
+Metrics --> StaticReport
+
+
+StaticReport --> AIInput
+
+AIInput --> LLM
+
+LLM --> Agents
+
+Agents --> CodeAgent
+Agents --> SecurityAgent
+Agents --> TestAgent
+
+
+CodeAgent --> AIReport
+SecurityAgent --> AIReport
+TestAgent --> AIReport
+
+
+AIReport --> Evaluation
+
+
+Evaluation --> Correctness
+Evaluation --> SecurityScore
+Evaluation --> Confidence
+Evaluation --> Hallucination
+
+
+Correctness --> TrustReport
+SecurityScore --> TrustReport
+Confidence --> TrustReport
+Hallucination --> TrustReport
+
+
+TrustReport --> API
+
+API --> Dashboard
+
+
+API --> Database
+
+AIInput --> VectorDB

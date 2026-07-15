@@ -1,0 +1,178 @@
+flowchart LR
+
+%% =========================
+%% User Interface Layer
+%% =========================
+
+subgraph Presentation["💻 Presentation Layer"]
+
+    Dashboard["Next.js Dashboard<br/>
+    - Upload Repository<br/>
+    - View Reports<br/>
+    - Trust Score Visualization"]
+
+end
+
+
+%% =========================
+%% API Layer
+%% =========================
+
+subgraph API["⚡ Backend API Layer"]
+
+    Auth["Authentication Component"]
+
+    ProjectAPI["Project Management API"]
+
+    AnalysisAPI["Analysis API"]
+
+    ReportAPI["Report API"]
+
+end
+
+
+%% =========================
+%% Core Processing Layer
+%% =========================
+
+subgraph Core["⚙️ Core Processing Layer"]
+
+    RepoScanner["Repository Scanner<br/>
+    - Git Clone<br/>
+    - File Detection<br/>
+    - Language Detection"]
+
+
+    Parser["Code Parser<br/>
+    - AST Analysis<br/>
+    - Code Extraction"]
+
+
+    JobManager["Job Manager<br/>
+    - Queue Handling<br/>
+    - Background Tasks"]
+
+end
+
+
+%% =========================
+%% Static Analysis Layer
+%% =========================
+
+subgraph Static["🟢 Static Analysis Components"]
+
+    QualityAnalyzer["Quality Analyzer<br/>
+    Ruff / Radon"]
+
+    SecurityAnalyzer["Security Analyzer<br/>
+    Bandit / Semgrep"]
+
+    MetricsEngine["Metrics Engine<br/>
+    Complexity<br/>
+    Maintainability"]
+
+end
+
+
+%% =========================
+%% AI Layer
+%% =========================
+
+subgraph AI["🤖 AI Intelligence Layer"]
+
+    PromptManager["Prompt Management"]
+
+    LLMConnector["LLM Connector<br/>
+    GPT / Claude / Gemini"]
+
+    ReviewAgents["AI Review Agents<br/>
+    - Code Review Agent<br/>
+    - Security Agent<br/>
+    - Testing Agent"]
+
+end
+
+
+%% =========================
+%% Trust Layer
+%% =========================
+
+subgraph Trust["🛡️ Trust Evaluation Layer"]
+
+    EvaluationEngine["Evaluation Engine"]
+
+    Confidence["Confidence Scoring"]
+
+    Hallucination["Hallucination Detection"]
+
+    Reliability["Reliability Score Generator"]
+
+end
+
+
+%% =========================
+%% Data Layer
+%% =========================
+
+subgraph Data["🗄️ Data Layer"]
+
+    Database["PostgreSQL"]
+
+    Cache["Redis Cache"]
+
+    VectorStore["Vector Database<br/>
+    Code Embeddings"]
+
+end
+
+
+
+%% =========================
+%% Relationships
+%% =========================
+
+Dashboard --> Auth
+Dashboard --> ProjectAPI
+Dashboard --> AnalysisAPI
+Dashboard --> ReportAPI
+
+
+AnalysisAPI --> JobManager
+
+JobManager --> RepoScanner
+
+RepoScanner --> Parser
+
+
+Parser --> QualityAnalyzer
+Parser --> SecurityAnalyzer
+Parser --> MetricsEngine
+
+
+QualityAnalyzer --> PromptManager
+SecurityAnalyzer --> PromptManager
+MetricsEngine --> PromptManager
+
+
+PromptManager --> LLMConnector
+
+LLMConnector --> ReviewAgents
+
+
+ReviewAgents --> EvaluationEngine
+
+
+EvaluationEngine --> Confidence
+EvaluationEngine --> Hallucination
+EvaluationEngine --> Reliability
+
+
+ProjectAPI --> Database
+
+AnalysisAPI --> Database
+
+ReportAPI --> Database
+
+JobManager --> Cache
+
+LLMConnector --> VectorStore

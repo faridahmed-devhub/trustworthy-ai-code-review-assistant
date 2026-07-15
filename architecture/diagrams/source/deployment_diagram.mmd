@@ -1,0 +1,129 @@
+flowchart TB
+
+%% =========================
+%% User Layer
+%% =========================
+
+User["👤 Developer / User<br/>
+Browser"]
+
+Internet["🌐 Internet"]
+
+
+%% =========================
+%% Cloud / Server Environment
+%% =========================
+
+subgraph Server["☁️ Cloud Server / VPS"]
+
+    Nginx["🌐 Nginx Reverse Proxy<br/>
+SSL Termination<br/>
+Load Routing"]
+
+
+    subgraph Docker["🐳 Docker Environment"]
+
+        Frontend["💻 Next.js Container<br/>
+User Dashboard"]
+
+
+        Backend["⚡ FastAPI Container<br/>
+REST API<br/>
+Authentication<br/>
+Business Logic"]
+
+
+        Worker["⏱️ Celery Worker Container<br/>
+Background Analysis Jobs"]
+
+
+        Analysis["🔍 Analysis Engine Container<br/>
+Ruff<br/>
+Bandit<br/>
+Semgrep<br/>
+AST Parser"]
+
+
+        AIEngine["🤖 AI Engine Container<br/>
+LLM Agents<br/>
+Prompt Processing<br/>
+Evaluation"]
+
+
+        Redis["⚡ Redis Container<br/>
+Task Queue<br/>
+Cache"]
+
+
+        PostgreSQL[("🗄️ PostgreSQL Container<br/>
+Projects<br/>
+Reports<br/>
+Metrics")]
+
+    end
+
+end
+
+
+%% =========================
+%% External AI Services
+%% =========================
+
+subgraph External_AI["☁️ External AI Providers"]
+
+    OpenAI["OpenAI API"]
+    Claude["Anthropic Claude"]
+    Gemini["Google Gemini"]
+
+end
+
+
+%% =========================
+%% Monitoring
+%% =========================
+
+Monitoring["📊 Monitoring<br/>
+Prometheus<br/>
+Grafana<br/>
+Logs"]
+
+
+
+%% =========================
+%% Connections
+%% =========================
+
+User --> Internet
+
+Internet --> Nginx
+
+Nginx --> Frontend
+
+Nginx --> Backend
+
+
+Backend --> PostgreSQL
+
+Backend --> Redis
+
+Redis --> Worker
+
+
+Worker --> Analysis
+
+Analysis --> AIEngine
+
+
+AIEngine --> OpenAI
+AIEngine --> Claude
+AIEngine --> Gemini
+
+
+AIEngine --> PostgreSQL
+
+
+Backend --> Monitoring
+
+Worker --> Monitoring
+
+Analysis --> Monitoring

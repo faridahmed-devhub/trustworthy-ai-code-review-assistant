@@ -1,0 +1,144 @@
+graph TD
+
+%% =========================
+%% User Layer
+%% =========================
+
+User["👤 Developer / User<br/>Upload Git Repository / Source Code"]
+
+
+%% =========================
+%% Repository Layer
+%% =========================
+
+Scanner["🔍 Repository Scanner<br/>
+- Git Clone<br/>
+- File Detection<br/>
+- Language Identification"]
+
+
+%% =========================
+%% Static Analysis Layer
+%% =========================
+
+subgraph Static_Analysis["🟢 Static Analysis Engine"]
+
+    Ruff["Ruff<br/>Code Quality"]
+    Bandit["Bandit<br/>Security Analysis"]
+    Semgrep["Semgrep<br/>Security Rules"]
+    AST["AST Parser<br/>Code Metrics"]
+
+    StaticReport["📄 Static Analysis Report"]
+
+    Ruff --> StaticReport
+    Bandit --> StaticReport
+    Semgrep --> StaticReport
+    AST --> StaticReport
+
+end
+
+
+%% =========================
+%% AI Layer
+%% =========================
+
+subgraph AI_Engine["🟣 AI Review Engine"]
+
+    LLM["🤖 Large Language Models<br/>
+GPT / Claude / Gemini / Local LLM"]
+
+    Agents["AI Agents<br/>
+- Code Review Agent<br/>
+- Security Agent<br/>
+- Testing Agent<br/>
+- Explanation Agent"]
+
+    AIReport["📄 AI Review Report"]
+
+    LLM --> Agents
+    Agents --> AIReport
+
+end
+
+
+%% =========================
+%% Trust Evaluation Layer
+%% =========================
+
+subgraph Trust["🟠 Trust Evaluation Layer"]
+
+    Metrics["Trust Metrics<br/>
+- Correctness Score<br/>
+- Security Score<br/>
+- Confidence Score<br/>
+- Hallucination Detection"]
+
+    TrustScore["📊 Overall Trust Score"]
+
+    Metrics --> TrustScore
+
+end
+
+
+%% =========================
+%% Backend Layer
+%% =========================
+
+subgraph Backend["🔵 Backend API Layer"]
+
+    FastAPI["⚡ FastAPI Backend<br/>
+REST API<br/>
+Authentication<br/>
+Project Management"]
+
+end
+
+
+%% =========================
+%% Frontend Layer
+%% =========================
+
+Dashboard["💻 Next.js Dashboard<br/>
+Quality Report<br/>
+Security Report<br/>
+AI Suggestions<br/>
+Trust Score"]
+
+
+%% =========================
+%% Infrastructure
+%% =========================
+
+subgraph Infrastructure["⚫ Infrastructure"]
+
+    DB[("PostgreSQL")]
+    Queue["Redis + Celery"]
+    Docker["Docker"]
+
+end
+
+
+%% =========================
+%% Main Data Flow
+%% =========================
+
+User --> Scanner
+
+Scanner --> Static_Analysis
+
+Static_Analysis --> AI_Engine
+
+AI_Engine --> Trust
+
+Trust --> FastAPI
+
+FastAPI --> Dashboard
+
+
+%% =========================
+%% Backend Support
+%% =========================
+
+FastAPI --> DB
+FastAPI --> Queue
+FastAPI --> Docker

@@ -1,0 +1,132 @@
+erDiagram
+
+    USERS {
+        uuid id PK
+        string name
+        string email
+        string password_hash
+        datetime created_at
+    }
+
+
+    PROJECTS {
+        uuid id PK
+        uuid user_id FK
+        string name
+        string repository_url
+        string language
+        datetime created_at
+    }
+
+
+    REPOSITORIES {
+        uuid id PK
+        uuid project_id FK
+        string branch
+        string commit_hash
+        string clone_path
+        datetime scanned_at
+    }
+
+
+    ANALYSIS_JOBS {
+        uuid id PK
+        uuid project_id FK
+        string status
+        string job_type
+        datetime started_at
+        datetime completed_at
+    }
+
+
+    STATIC_ANALYSIS_RESULTS {
+        uuid id PK
+        uuid job_id FK
+        string tool_name
+        string issue_type
+        string severity
+        string file_path
+        int line_number
+        text description
+    }
+
+
+    AI_REVIEWS {
+        uuid id PK
+        uuid job_id FK
+        string model_name
+        text prompt
+        text response
+        float confidence_score
+        datetime created_at
+    }
+
+
+    TRUST_EVALUATIONS {
+        uuid id PK
+        uuid ai_review_id FK
+        float correctness_score
+        float security_score
+        float maintainability_score
+        float hallucination_score
+        float overall_trust_score
+    }
+
+
+    CODE_METRICS {
+        uuid id PK
+        uuid job_id FK
+        float complexity_score
+        float maintainability_index
+        int lines_of_code
+        int code_smells
+    }
+
+
+    EXPERIMENTS {
+        uuid id PK
+        string experiment_name
+        string dataset_name
+        string model_name
+        text configuration
+        datetime created_at
+    }
+
+
+    EXPERIMENT_RESULTS {
+        uuid id PK
+        uuid experiment_id FK
+        float accuracy
+        float precision
+        float recall
+        float f1_score
+        text notes
+    }
+
+
+    DATASETS {
+        uuid id PK
+        string name
+        string source
+        string description
+        datetime created_at
+    }
+
+
+    USERS ||--o{ PROJECTS : owns
+
+    PROJECTS ||--o{ REPOSITORIES : contains
+
+    PROJECTS ||--o{ ANALYSIS_JOBS : creates
+
+    ANALYSIS_JOBS ||--o{ STATIC_ANALYSIS_RESULTS : produces
+
+    ANALYSIS_JOBS ||--o{ CODE_METRICS : generates
+
+    ANALYSIS_JOBS ||--o{ AI_REVIEWS : creates
+
+    AI_REVIEWS ||--|| TRUST_EVALUATIONS : evaluated_by
+
+    EXPERIMENTS ||--o{ EXPERIMENT_RESULTS : produces
+
+    DATASETS ||--o{ EXPERIMENTS : used_by

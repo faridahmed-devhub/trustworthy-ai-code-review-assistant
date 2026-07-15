@@ -1,0 +1,118 @@
+flowchart TD
+
+%% =====================================
+%% Developer
+%% =====================================
+
+A[👨‍💻 Developer]
+
+%% =====================================
+%% Source Control
+%% =====================================
+
+B[📦 GitHub Repository]
+
+%% =====================================
+%% Continuous Integration
+%% =====================================
+
+subgraph CI["Continuous Integration"]
+
+C1[Checkout Source]
+
+C2[Install Dependencies]
+
+C3[Code Formatting<br/>Black + isort]
+
+C4[Linting<br/>Ruff]
+
+C5[Unit Tests<br/>Pytest]
+
+C6[Security Scan<br/>Bandit + Semgrep]
+
+C7[Build Docker Image]
+
+end
+
+%% =====================================
+%% Container Registry
+%% =====================================
+
+D[Docker Registry]
+
+%% =====================================
+%% Continuous Deployment
+%% =====================================
+
+subgraph CD["Continuous Deployment"]
+
+E1[Deploy FastAPI Backend]
+
+E2[Deploy Next.js Frontend]
+
+E3[Run Database Migration]
+
+E4[Start Redis]
+
+E5[Start Celery Workers]
+
+end
+
+%% =====================================
+%% Runtime Services
+%% =====================================
+
+subgraph Runtime
+
+F1[Repository Scanner]
+
+F2[Static Analysis Engine]
+
+F3[AI Review Engine]
+
+F4[Trust Evaluation]
+
+F5[Generate Reports]
+
+end
+
+%% =====================================
+%% Dashboard
+%% =====================================
+
+G[Interactive Dashboard]
+
+%% =====================================
+%% Flow
+%% =====================================
+
+A -->|Push| B
+
+B --> C1
+C1 --> C2
+C2 --> C3
+C3 --> C4
+C4 --> C5
+C5 --> C6
+C6 --> C7
+
+C7 --> D
+
+D --> E1
+D --> E2
+
+E1 --> E3
+E3 --> E4
+E4 --> E5
+
+E1 --> F1
+
+F1 --> F2
+
+F2 --> F3
+
+F3 --> F4
+
+F4 --> F5
+
+F5 --> G

@@ -1,0 +1,86 @@
+erDiagram
+
+    USERS {
+        uuid id PK
+        string full_name
+        string email
+        string password_hash
+        string role
+        datetime created_at
+    }
+
+    PROJECTS {
+        uuid id PK
+        uuid user_id FK
+        string name
+        string repository_url
+        string language
+        datetime created_at
+    }
+
+    ANALYSIS_JOBS {
+        uuid id PK
+        uuid project_id FK
+        string status
+        string branch
+        datetime started_at
+        datetime completed_at
+    }
+
+    STATIC_ANALYSIS_RESULTS {
+        uuid id PK
+        uuid job_id FK
+        int quality_score
+        int security_score
+        int maintainability_score
+        int complexity_score
+    }
+
+    AI_REVIEWS {
+        uuid id PK
+        uuid job_id FK
+        string llm_provider
+        text summary
+        float confidence_score
+        datetime created_at
+    }
+
+    TRUST_EVALUATIONS {
+        uuid id PK
+        uuid ai_review_id FK
+        float correctness_score
+        float hallucination_score
+        float trust_score
+        datetime evaluated_at
+    }
+
+    ISSUES {
+        uuid id PK
+        uuid job_id FK
+        string issue_type
+        string severity
+        string file_path
+        int line_number
+    }
+
+    REPORTS {
+        uuid id PK
+        uuid job_id FK
+        string report_format
+        string report_path
+        datetime generated_at
+    }
+
+    USERS ||--o{ PROJECTS : owns
+
+    PROJECTS ||--o{ ANALYSIS_JOBS : contains
+
+    ANALYSIS_JOBS ||--|| STATIC_ANALYSIS_RESULTS : produces
+
+    ANALYSIS_JOBS ||--o{ AI_REVIEWS : generates
+
+    AI_REVIEWS ||--|| TRUST_EVALUATIONS : evaluated_by
+
+    ANALYSIS_JOBS ||--o{ ISSUES : detects
+
+    ANALYSIS_JOBS ||--o{ REPORTS : generates

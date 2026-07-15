@@ -1,0 +1,94 @@
+flowchart TD
+
+%% ==================================================
+%% Input
+%% ==================================================
+
+A[Developer Uploads Repository]
+
+B[Repository Scanner]
+
+C[Source Code Parser]
+
+%% ==================================================
+%% Static Analysis
+%% ==================================================
+
+D[Static Analysis Engine]
+
+D1[Ruff]
+D2[Bandit]
+D3[Semgrep]
+D4[Radon]
+
+%% ==================================================
+%% AI Review Engine
+%% ==================================================
+
+E[LLM Review Engine]
+
+E1[Code Quality Review]
+
+E2[Security Review]
+
+E3[Performance Analysis]
+
+E4[Best Practices Review]
+
+E5[Test Case Suggestions]
+
+%% ==================================================
+%% Trust Evaluation
+%% ==================================================
+
+F[Trust Evaluation]
+
+F1[Confidence Score]
+
+F2[Hallucination Detection]
+
+F3[Correctness Assessment]
+
+F4[Maintainability Score]
+
+%% ==================================================
+%% Report
+%% ==================================================
+
+G[Generate Final Report]
+
+H[Dashboard]
+
+%% ==================================================
+%% Flow
+%% ==================================================
+
+A --> B
+
+B --> C
+
+C --> D
+
+D --> D1
+D --> D2
+D --> D3
+D --> D4
+
+D --> E
+
+E --> E1
+E --> E2
+E --> E3
+E --> E4
+E --> E5
+
+E --> F
+
+F --> F1
+F --> F2
+F --> F3
+F --> F4
+
+F --> G
+
+G --> H
